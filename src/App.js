@@ -1,8 +1,8 @@
-
-
+import 'bootstrap/dist/css/bootstrap.css';
+import Navbar from './component/Navbar';
 function App() {
   return (
-  <h1>Arslan Akmal</h1>
+  <Navbar/>
   );
 }
 
