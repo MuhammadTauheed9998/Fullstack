@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
+import Loader from './Loader';
 
 const Products = () => {
     const [products,setProducts]=useState([]);
+    const [loader,setLoader]=useState(true)
 
     const fetchData=async()=>{
         const response=await axios.get("https://fakestoreapi.com/products")
         const data=await response.data;
-        console.log(data)
         setProducts(data);
+        setLoader(false)
     }
  
 
@@ -19,6 +21,7 @@ const Products = () => {
 
   return (
     <div>
+      {loader ? <Loader/> : null}
         <div className="d-flex flex-wrap justify-content-center align-items-center">
       {
         products.map((item)=>{
